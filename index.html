@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0119)file:///D:/Data%20Analytics%20Project/Weather%20and%20Pollution%20Prediction/UI%20&%20Web/hamburger%20menu%20save4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <title>Weather &amp; Pollution Prediction</title>
+  <link rel="icon" href="./hamburger menu save4_files/W AQI Tree Logo.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-size: 100%;
+      background-attachment: fixed;
+      font-family: 'Nanum Myeongjo', serif;
+    }
+
+    header {
+      background-color: #4d99e7;
+      color: #fff;
+      padding: 15px;
+      text-align: right;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    #toggle-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      font-size: 24px;
+      margin-right: 20px;
+      color: #ffffff;
+    }
+
+    #mainh1 {
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    #celsius {
+      margin: 0;
+      text-align: center;
+      font-size: 80px;
+      color:#ffffff
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #6ca9ea;
+      padding: 10px;
+      display: none;
+      !important
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-color: #333;
+      color: #ffffff;
+      !important
+    }
+
+    #location-info {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    #current-location {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    #place-name {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    #toggle-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .toggle-button-container {
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .toggle-buttons {
+      display: flex;
+    }
+
+    .toggle-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    .toggle-buttons button.active {
+      background-color: #2ecc71;
+      border-radius: 5px;
+      margin-right: -5px;
+    }
+
+    #dayCards {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .day_cards {
+      margin: 20px;
+      padding: 20px;
+      border: 0px solid #1689ba;
+      flex: 1;
+      text-align: center;
+      border-radius: 8%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden; /* Add overflow to hide overflowing content */
+    }
+
+    .day_cards img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      margin-bottom: 0px;
+      border-radius: 6%;
+      opacity: 100%;/* edit from here img */
+      padding: 0%;
+      border: 0%;
+    }
+
+    .day_cards h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-size: 18px;
+      color: #121618;
+      
+    }
+  </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+
+<body background="./hamburger menu save4_files/cloud bg.jpg">
+  <header>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+    <h1 id="mainh1">Weather &amp; Pollution Prediction</h1>
+    <img src="./hamburger menu save4_files/W AQI Tree Logo.png" alt="Logo" style="max-height: 100px; align-items: right; margin-right: 20px;">
+  </header>
+
+  <nav style="display: flex;">
+    <a href="file:///D:/Data%20Analytics%20Project/Weather%20and%20Pollution%20Prediction/UI%20&amp;%20Web/hamburger%20menu%20save4.html#">Contact</a>
+    <a href="file:///D:/Data%20Analytics%20Project/Weather%20and%20Pollution%20Prediction/UI%20&amp;%20Web/hamburger%20menu%20save4.html#">Home</a>
+    <a href="file:///D:/Data%20Analytics%20Project/Weather%20and%20Pollution%20Prediction/UI%20&amp;%20Web/hamburger%20menu%20save4.html#">About</a>
+  </nav>
+  <div id="toggle-buttons">
+    <div class="toggle-button-container">
+      <div class="toggle-buttons">
+        <button onclick="toggleWeather()" class="active">Weather</button>
+        <button onclick="toggleAQI()">AQI</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="location-info">
+    <div id="current-location">
+      <strong>Current Location:</strong> <span id="userLocation">Loading...</span>
+    </div>
+    <div id="place-name">
+      <strong>District:</strong> <span id="userDistrict">Unable to retrieve location</span>
+    </div>
+  </div>
+  <div>
+    <h1 id="celsius"> 32°C</h1>
+  </div>
+
+  <!-- This div is for cards-->
+  <div id="dayCards">
+    <div class="day_cards">
+      <h1>SUN</h1>
+      <img src="./hamburger menu save4_files/Cloudy with Sun.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>MON</h1>
+      <img src="./hamburger menu save4_files/Sunny Rainy Day.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>TUE</h1>
+      <img src="./hamburger menu save4_files/thunderstorm.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>WED</h1>
+      <img src="./hamburger menu save4_files/Storm.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>THU</h1>
+      <img src="./hamburger menu save4_files/Cloudy.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>FRI</h1>
+      <img src="./hamburger menu save4_files/Cloudy with Sun.png" alt="Sun Image">
+    </div>
+    <div class="day_cards">
+      <h1>SAT</h1>
+      <img src="./hamburger menu save4_files/Sunny.png" alt="Sun Image">
+    </div>
+  </div>
+
+  <script>
+    function toggleWeather() {
+      // Implement any logic for displaying weather information
+      document.getElementById('celsius').innerHTML = '32°C'; // Example: Change this line with your weather data
+    }
+
+    function toggleAQI() {
+      // Redirect to another page (you can replace 'aqi-page.html' with the actual page URL)
+      window.location.href = 'aqi-page.html';
+    }
+
+    function toggleMenu() {
+      var nav = document.querySelector('nav');
+      nav.style.display = (nav.style.display === 'none' || nav.style.display === '') ? 'flex' : 'none';
+    }
+
+    function getUserLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Call the function to get district name based on coordinates
+            getDistrictName(latitude, longitude);
+
+            // Display the current location
+            document.getElementById('userLocation').innerHTML = `Latitude: ${latitude}, Longitude: ${longitude}`;
+          },
+          function (error) {
+            document.getElementById('userDistrict').innerHTML = 'Unable to retrieve location';
+          }
+        );
+      } else {
+        document.getElementById('userDistrict').innerHTML = 'Geolocation is not supported by this browser.';
+      }
+    }
+
+    function getDistrictName(latitude, longitude) {
+      var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          var districtName = extractDistrict(data.address);
+          document.getElementById('userDistrict').innerHTML = districtName;
+        })
+        .catch(error => {
+          document.getElementById('userDistrict').innerHTML = 'Unable to retrieve district';
+        });
+    }
+
+    function extractDistrict(address) {
+      // Extract district information from the address object
+      if (address && address.county) {
+        return address.county;
+      } else if (address && address.state_district) {
+        return address.state_district;
+      } else {
+        return 'Unknown District';
+      }
+    }
+
+    getUserLocation();
+  </script>
+
+
+
+
+</body></html>
