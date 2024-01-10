@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Pollution Contact Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .company-info {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .company-info h3 {
+            color: #333;
+        }
+
+        .company-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .company-info li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .contact {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .contact h3 {
+            color: #333;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="brand"><span>W AQI</span></h1>
+
+    <div class="wrapper">
+
+        <!-- COMPANY INFORMATION -->
+        <div class="company-info">
+            <h3>Weather and Pollution</h3>
+
+            <ul>
+                <li><i class="fa fa-road"></i> Karnataka</li>
+                <li><i class="fa fa-phone"></i> 123456789</li>
+                <li><i class="fa fa-envelope"></i> abcd@gmail.com</li>
+            </ul>
+        </div>
+        <!-- End .company-info -->
+
+        <!-- CONTACT FORM -->
+        <div class="contact">
+            <h3>E-mail Us</h3>
+
+            <form id="contact-form">
+
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" id="name" required>
+                </p>
+
+                <p>
+                    <label>Company</label>
+                    <input type="text" name="company" id="company">
+                </p>
+
+                <p>
+                    <label>E-mail Address</label>
+                    <input type="email" name="email" id="email" required>
+                </p>
+
+                <p>
+                    <label>Phone Number</label>
+                    <input type="text" name="phone" id="phone">
+                </p>
+
+                <p class="full">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" id="message"></textarea>
+                </p>
+
+                <p class="full">
+                    <button type="submit">Submit</button>
+                </p>
+
+            </form>
+            <!-- End #contact-form -->
+        </div>
+        <!-- End .contact -->
+
+    </div>
+    <!-- End .wrapper -->
+</div>
+<!-- End .container -->
+
+</body>
+</html>
