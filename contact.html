@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://www.googleapis.com/identitytoolkit/v3/recaptcha/v3.l.js"></script>
-    <script src="https://www.firebase.com/__/firebase/9.11.2/firebase-app.js"></script>
-    <script src="https://www.firebase.com/__/firebase/9.11.2/firebase-firestore.js"></script>
-
+    
     <title>Weather & Pollution Contact Form</title>
     <style>
         body {
@@ -123,8 +120,8 @@
         <div class="contact">
             <h3>E-mail Us</h3>
 
-            <form id="contactForm">
-
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="e58274ae-8944-45fd-a4f0-998b2184c316">
                 <p>
                     <label>Name</label>
                     <input type="text" name="name" id="name" required>
@@ -163,7 +160,7 @@
     <!-- End .wrapper -->
 </div>
 <!-- End .container -->
-<script src="contactpage.js"></script>
+
 
 </body>
 </html>
